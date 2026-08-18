@@ -1,167 +1,132 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f5266">
-  <title>Buscador de Lojas | Shopping D</title>
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef4f5;color:#15333d}
-    .top{background:linear-gradient(135deg,#123f4b,#0a667e);padding:22px 16px 62px}
-    .brand{max-width:900px;margin:auto;display:flex;align-items:center;justify-content:center}
-    .brand img{width:min(355px,90vw);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.15)}
-    .panel{max-width:900px;margin:-35px auto 30px;background:white;border-radius:18px;padding:24px;box-shadow:0 14px 40px rgba(20,55,65,.16)}
-    h1{margin:0 0 6px;text-align:center;font-size:clamp(26px,5vw,40px);color:#0f5266}
-    .subtitle{text-align:center;margin:0 0 16px;color:#59717a}
-    .parking{text-align:center;margin:0 auto 20px;display:flex;justify-content:center}
-    .parking span{background:#eaf5f7;color:#0f5266;border:1px solid #c8e2e7;padding:9px 14px;border-radius:999px;font-weight:700}
-    .search-wrap{display:grid;grid-template-columns:1fr auto;gap:10px}
-    input,select,button{font:inherit}
-    #q{width:100%;padding:15px 16px;border:2px solid #c9dadd;border-radius:12px;outline:none;font-size:17px}
-    #q:focus{border-color:#0e6d83;box-shadow:0 0 0 3px rgba(14,109,131,.12)}
-    button{padding:0 22px;border:0;border-radius:12px;background:#e95f17;color:#fff;font-weight:700;cursor:pointer}
-    .filters{display:flex;gap:10px;margin-top:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    #floor{padding:9px 12px;border:1px solid #c9dadd;border-radius:10px;background:#fff}
-    #count{font-size:14px;color:#607981}
-    .results{display:grid;gap:10px;margin-top:20px}
-    .card{border:1px solid #d7e3e6;border-radius:13px;padding:15px 16px;display:grid;grid-template-columns:100px 1fr auto;gap:14px;align-items:center;background:#fff}
-    .luc{font-weight:800;color:#e95f17;font-size:20px}
-    .name{font-weight:800;font-size:18px;color:#163e49}
-    .floor{font-size:13px;color:#607981;background:#edf4f5;padding:6px 9px;border-radius:999px;white-space:nowrap}
-    .empty{text-align:center;padding:32px;color:#607981}
-    .hint{margin-top:13px;font-size:13px;color:#72868c;text-align:center}
-    .manage{margin-top:22px;text-align:center}
-    .manage a{display:inline-block;text-decoration:none;background:#0f5266;color:white;padding:11px 16px;border-radius:10px;font-weight:700}
-    footer{text-align:center;color:#71868d;padding:0 15px 28px;font-size:13px}
-    @media(max-width:620px){
-      .panel{margin:-35px 12px 24px;padding:18px}
-      .search-wrap{grid-template-columns:1fr}
-      button{height:48px}
-      .card{grid-template-columns:80px 1fr}
-      .floor{grid-column:2;justify-self:start}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f5266">
+<title>Buscador de Lojas | Shopping D</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef4f5;color:#15333d}
+.top{background:linear-gradient(135deg,#123f4b,#0a667e);padding:22px 16px 62px}
+.brand{max-width:900px;margin:auto;display:flex;justify-content:center}
+.brand img{width:min(355px,90vw);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.15)}
+.panel{max-width:900px;margin:-35px auto 30px;background:#fff;border-radius:18px;padding:24px;box-shadow:0 14px 40px rgba(20,55,65,.16)}
+h1{margin:0 0 6px;text-align:center;font-size:clamp(26px,5vw,40px);color:#0f5266}
+.subtitle{text-align:center;margin:0 0 16px;color:#59717a}
+.parking{text-align:center;margin:0 auto 20px;display:flex;justify-content:center}
+.parking span{background:#eaf5f7;color:#0f5266;border:1px solid #c8e2e7;padding:9px 14px;border-radius:999px;font-weight:700}
+.search-wrap{display:grid;grid-template-columns:1fr auto;gap:10px}
+input,select,button{font:inherit}
+#q{width:100%;padding:15px 16px;border:2px solid #c9dadd;border-radius:12px;outline:none;font-size:17px}
+#q:focus{border-color:#0e6d83;box-shadow:0 0 0 3px rgba(14,109,131,.12)}
+button{padding:0 22px;border:0;border-radius:12px;background:#e95f17;color:#fff;font-weight:700;cursor:pointer}
+.filters{display:flex;gap:10px;margin-top:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#floor{padding:9px 12px;border:1px solid #c9dadd;border-radius:10px;background:#fff}
+#count{font-size:14px;color:#607981}
+.results{display:grid;gap:10px;margin-top:20px}
+.card{border:1px solid #d7e3e6;border-radius:13px;padding:15px 16px;display:grid;grid-template-columns:100px 1fr auto;gap:14px;align-items:center;background:#fff}
+.luc{font-weight:800;color:#e95f17;font-size:20px}
+.name{font-weight:800;font-size:18px;color:#163e49}
+.floor{font-size:13px;color:#607981;background:#edf4f5;padding:6px 9px;border-radius:999px;white-space:nowrap}
+.empty{text-align:center;padding:32px;color:#607981}
+.hint{margin-top:13px;font-size:13px;color:#72868c;text-align:center}
+.status{display:none;margin:12px 0;padding:12px;border-radius:10px;background:#fff0f0;border:1px solid #efc1c1;color:#7b2525}
+footer{text-align:center;color:#71868d;padding:0 15px 28px;font-size:13px}
+@media(max-width:620px){
+ .panel{margin:-35px 12px 24px;padding:18px}
+ .search-wrap{grid-template-columns:1fr}
+ button{height:48px}
+ .card{grid-template-columns:80px 1fr}
+ .floor{grid-column:2;justify-self:start}
+}
+</style>
 </head>
 <body>
-  <header class="top">
-    <div class="brand"><img src="argoplan-shoppingd.png" alt="Argoplan e Shopping D"></div>
-  </header>
+<header class="top"><div class="brand"><img src="argoplan-shoppingd.png" alt="Argoplan e Shopping D"></div></header>
+<main class="panel">
+<h1>Buscador de Lojas</h1>
+<p class="subtitle">Shopping D • Consulte pelo número da unidade ou pelo nome da loja</p>
+<div class="parking"><span id="parkingInfo">🚗 Carregando vagas...</span></div>
+<div id="status" class="status"></div>
 
-  <main class="panel">
-    <h1>Buscador de Lojas</h1>
-    <p class="subtitle">Shopping D • Consulte pelo número da unidade ou pelo nome da loja</p>
+<div class="search-wrap">
+<input id="q" autocomplete="off" placeholder="Ex.: 2312, 1050, Burger King, Vivo...">
+<button id="btn">Buscar</button>
+</div>
 
-    <div class="parking"><span>🚗 551 vagas de estacionamento</span></div>
+<div class="filters">
+<select id="floor"><option value="">Todos os andares</option></select>
+<span id="count"></span>
+</div>
 
-    <div class="search-wrap">
-      <input id="q" autocomplete="off" placeholder="Ex.: 2312, 1050, Burger King, Vivo...">
-      <button id="btn">Buscar</button>
-    </div>
+<div class="hint">A busca aceita parte do nome ou do número da unidade.</div>
+<section id="results" class="results" aria-live="polite"></section>
+</main>
+<footer>Shopping D • Argoplan</footer>
 
-    <div class="filters">
-      <select id="floor">
-        <option value="">Todos os andares</option>
-      </select>
-      <span id="count"></span>
-    </div>
-
-    <div class="hint">A busca aceita parte do nome ou do número da unidade.</div>
-    <section id="results" class="results" aria-live="polite"></section>
-
-    <div class="manage">
-      <a href="admin.html">Gerenciar lojas</a>
-    </div>
-  </main>
-
-  <footer>Shopping D • Argoplan • Base de lojas editável</footer>
-
+<script src="config.js"></script>
 <script>
-let lojas = [];
+let lojas=[];
+const q=document.getElementById('q');
+const floor=document.getElementById('floor');
+const results=document.getElementById('results');
+const count=document.getElementById('count');
+const statusBox=document.getElementById('status');
 
-function norm(s) {
-  return (s || "")
-    .toString()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .toLowerCase()
-    .trim();
+function norm(s){
+ return (s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+}
+function headers(){
+ return {apikey:APP_CONFIG.SUPABASE_KEY,Authorization:'Bearer '+APP_CONFIG.SUPABASE_KEY};
+}
+function showError(t){statusBox.textContent=t;statusBox.style.display='block';}
+
+async function load(){
+ try{
+   const [a,b]=await Promise.all([
+     fetch(APP_CONFIG.SUPABASE_URL+'/rest/v1/lojas?select=id,andar,luc,nome&order=nome.asc',{headers:headers()}),
+     fetch(APP_CONFIG.SUPABASE_URL+'/rest/v1/configuracoes?select=valor&chave=eq.vagas_estacionamento',{headers:headers()})
+   ]);
+   if(!a.ok) throw new Error('lojas');
+   lojas=await a.json();
+   if(b.ok){
+     const cfg=await b.json();
+     document.getElementById('parkingInfo').textContent='🚗 '+((cfg[0]&&cfg[0].valor)||'551')+' vagas de estacionamento';
+   } else {
+     document.getElementById('parkingInfo').textContent='🚗 551 vagas de estacionamento';
+   }
+   buildFloors();
+   render();
+ }catch(e){
+   showError('Não foi possível carregar os dados online.');
+ }
 }
 
-function getSaved() {
-  try {
-    const saved = localStorage.getItem("shoppingD_lojas");
-    return saved ? JSON.parse(saved) : null;
-  } catch(e) {
-    return null;
-  }
+function buildFloors(){
+ floor.innerHTML='<option value="">Todos os andares</option>';
+ [...new Set(lojas.map(x=>x.andar))].sort().forEach(a=>{
+  const o=document.createElement('option');o.value=a;o.textContent=a;floor.appendChild(o);
+ });
 }
-
-async function loadStores() {
-  const saved = getSaved();
-  if (saved && Array.isArray(saved)) {
-    lojas = saved;
-  } else {
-    try {
-      const r = await fetch("lojas.json");
-      lojas = await r.json();
-    } catch(e) {
-      lojas = [];
-    }
-  }
-  buildFloors();
-  render();
+function render(){
+ const term=norm(q.value), f=floor.value;
+ const found=lojas.filter(x=>(!term||norm(x.nome).includes(term)||norm(x.luc).includes(term))&&(!f||x.andar===f));
+ count.textContent=found.length+(found.length===1?' loja encontrada':' lojas encontradas');
+ results.innerHTML='';
+ if(!found.length){results.innerHTML='<div class="empty">Nenhuma loja encontrada.</div>';return;}
+ found.forEach(x=>{
+  const c=document.createElement('article');
+  c.className='card';
+  c.innerHTML=`<div class="luc">${x.luc}</div><div class="name">${x.nome}</div><div class="floor">${x.andar}</div>`;
+  results.appendChild(c);
+ });
 }
-
-const q = document.getElementById("q");
-const floor = document.getElementById("floor");
-const results = document.getElementById("results");
-const count = document.getElementById("count");
-
-function buildFloors() {
-  floor.innerHTML = '<option value="">Todos os andares</option>';
-  [...new Set(lojas.map(x => x.andar))].sort().forEach(a => {
-    const opt = document.createElement("option");
-    opt.value = a; opt.textContent = a;
-    floor.appendChild(opt);
-  });
-}
-
-function render() {
-  const term = norm(q.value);
-  const f = floor.value;
-  const found = lojas.filter(x => {
-    const matchTerm = !term || norm(x.nome).includes(term) || norm(x.luc).includes(term);
-    const matchFloor = !f || x.andar === f;
-    return matchTerm && matchFloor;
-  });
-
-  count.textContent = found.length + (found.length === 1 ? " loja encontrada" : " lojas encontradas");
-  results.innerHTML = "";
-
-  if (!found.length) {
-    results.innerHTML = '<div class="empty">Nenhuma loja encontrada. Tente pesquisar apenas uma parte do nome ou da unidade.</div>';
-    return;
-  }
-
-  found.forEach(x => {
-    const card = document.createElement("article");
-    card.className = "card";
-    card.innerHTML = `
-      <div class="luc">${x.luc}</div>
-      <div class="name">${x.nome}</div>
-      <div class="floor">${x.andar}</div>
-    `;
-    results.appendChild(card);
-  });
-}
-
-document.getElementById("btn").addEventListener("click", render);
-q.addEventListener("input", render);
-floor.addEventListener("change", render);
-q.addEventListener("keydown", e => { if(e.key === "Enter") render(); });
-
-loadStores();
+document.getElementById('btn').onclick=render;
+q.oninput=render;
+floor.onchange=render;
+q.onkeydown=e=>{if(e.key==='Enter')render();};
+load();
 </script>
 </body>
 </html>

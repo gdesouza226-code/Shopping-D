@@ -1,170 +1,182 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Gerenciar Lojas | Shopping D</title>
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#edf3f4;color:#15333d}
-    .wrap{max-width:1000px;margin:30px auto;padding:0 16px}
-    .panel{background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 35px rgba(0,0,0,.10);margin-bottom:18px}
-    h1,h2{color:#0f5266;margin-top:0}
-    .grid{display:grid;grid-template-columns:1fr 1fr 2fr auto;gap:10px}
-    input,select,button{font:inherit;padding:12px;border-radius:10px}
-    input,select{border:1px solid #c7d7db;width:100%}
-    button{border:0;background:#0f5266;color:#fff;font-weight:700;cursor:pointer}
-    .danger{background:#b52929}
-    .orange{background:#e95f17}
-    .ghost{background:#6f7f85}
-    .top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:10px;border-bottom:1px solid #e2eaec;text-align:left}
-    th{background:#f4f8f9}
-    .small{font-size:13px;color:#677d84}
-    .back{display:inline-block;margin-bottom:15px;text-decoration:none;color:#0f5266;font-weight:700}
-    .notice{background:#fff5dd;border:1px solid #f4d98d;padding:12px;border-radius:10px;margin-bottom:14px}
-    @media(max-width:760px){
-      .grid{grid-template-columns:1fr}
-      table,thead,tbody,tr,th,td{display:block}
-      thead{display:none}
-      tr{border:1px solid #e2eaec;border-radius:10px;margin-bottom:10px;padding:8px}
-      td{border:0;padding:5px 6px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | Shopping D</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#edf3f4;color:#15333d}
+.wrap{max-width:1000px;margin:30px auto;padding:0 16px}
+.box{background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 35px rgba(0,0,0,.10);margin-bottom:18px}
+h1,h2{color:#0f5266;margin-top:0}
+.login{display:grid;grid-template-columns:1fr 1fr auto;gap:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr 2fr auto;gap:10px}
+input,button{font:inherit;padding:12px;border-radius:10px}
+input{border:1px solid #c7d7db;width:100%}
+button{border:0;background:#0f5266;color:#fff;font-weight:700;cursor:pointer}
+.orange{background:#e95f17}
+.danger{background:#b52929}
+.secondary{background:#6f7f85}
+.msg{padding:12px;border-radius:10px;margin:12px 0;display:none}
+.msg.ok{display:block;background:#e9f7ee;border:1px solid #b9e0c5;color:#205b31}
+.msg.err{display:block;background:#fff0f0;border:1px solid #efc1c1;color:#7b2525}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid #e2eaec;text-align:left}
+th{background:#f4f8f9}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+#app{display:none}
+.small{font-size:13px;color:#607981}
+@media(max-width:760px){
+ .login,.grid{grid-template-columns:1fr}
+ table,thead,tbody,tr,th,td{display:block}
+ thead{display:none}
+ tr{border:1px solid #e2eaec;border-radius:10px;margin-bottom:10px;padding:8px}
+ td{border:0;padding:5px 6px}
+}
+</style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="index.html">← Voltar ao buscador</a>
-
-  <div class="panel">
-    <h1>Gerenciar lojas</h1>
-    <div class="notice">
-      As alterações ficam salvas neste navegador. Para usar em outro computador, use <b>Exportar dados</b> e depois <b>Importar dados</b>.
-    </div>
-    <div class="grid">
-      <input id="andar" placeholder="Andar, ex.: PISO 1">
-      <input id="luc" placeholder="LUC / Unidade, ex.: 1050">
-      <input id="nome" placeholder="Nome da loja">
-      <button id="add">Adicionar</button>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="top-actions">
-      <button id="export" class="orange">Exportar dados</button>
-      <button id="importBtn" class="ghost">Importar dados</button>
-      <button id="reset" class="danger">Restaurar lista original</button>
-      <input id="file" type="file" accept=".json" hidden>
-    </div>
-    <input id="search" placeholder="Pesquisar loja para editar ou excluir">
-    <p class="small" id="total"></p>
-    <div style="overflow:auto">
-      <table>
-        <thead><tr><th>Andar</th><th>LUC</th><th>Loja</th><th>Ação</th></tr></thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </div>
-  </div>
+<div class="box">
+<h1>Administração • Shopping D</h1>
+<p>Use este link somente para administração.</p>
+<div class="login">
+<input id="email" type="email" placeholder="E-mail">
+<input id="password" type="password" placeholder="Senha">
+<button id="login">Entrar</button>
+</div>
+<div id="msg" class="msg"></div>
 </div>
 
+<div id="app">
+<div class="box">
+<h2>Vagas de estacionamento</h2>
+<div class="grid" style="grid-template-columns:1fr auto">
+<input id="vagas" type="number" min="0" placeholder="Quantidade de vagas">
+<button id="saveParking" class="orange">Salvar vagas</button>
+</div>
+</div>
+
+<div class="box">
+<h2>Adicionar loja</h2>
+<div class="grid">
+<input id="andar" placeholder="Andar, ex.: PISO 1">
+<input id="luc" placeholder="LUC / Unidade">
+<input id="nome" placeholder="Nome da loja">
+<button id="add">Adicionar</button>
+</div>
+</div>
+
+<div class="box">
+<div class="actions">
+<input id="search" style="flex:1;min-width:240px" placeholder="Pesquisar loja para editar ou excluir">
+<button id="logout" class="secondary">Sair</button>
+</div>
+<p id="total" class="small"></p>
+<div style="overflow:auto">
+<table>
+<thead><tr><th>Andar</th><th>LUC</th><th>Loja</th><th>Ação</th></tr></thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script src="config.js"></script>
 <script>
-let lojas = [];
-let original = [];
+let lojas=[];
+let adminEmail='',adminSenha='';
+const msg=document.getElementById('msg');
 
-function save(){
-  localStorage.setItem("shoppingD_lojas", JSON.stringify(lojas));
-  render();
+function setMsg(t,err=false){msg.textContent=t;msg.className='msg '+(err?'err':'ok');}
+function publicHeaders(){return {apikey:APP_CONFIG.SUPABASE_KEY,Authorization:'Bearer '+APP_CONFIG.SUPABASE_KEY};}
+async function rpc(name,body){
+ const r=await fetch(APP_CONFIG.SUPABASE_URL+'/rest/v1/rpc/'+name,{
+  method:'POST',
+  headers:{...publicHeaders(),'Content-Type':'application/json'},
+  body:JSON.stringify(body)
+ });
+ const text=await r.text();
+ if(!r.ok) throw new Error(text||'Erro');
+ try{return JSON.parse(text)}catch{return text}
 }
 
+async function login(){
+ adminEmail=document.getElementById('email').value.trim();
+ adminSenha=document.getElementById('password').value;
+ try{
+  const ok=await rpc('validar_admin',{p_email:adminEmail,p_senha:adminSenha});
+  if(ok!==true) throw new Error('login');
+  sessionStorage.setItem('shoppingd_admin_email',adminEmail);
+  sessionStorage.setItem('shoppingd_admin_senha',adminSenha);
+  document.getElementById('app').style.display='block';
+  setMsg('Acesso liberado.');
+  await load();
+ }catch(e){setMsg('Login ou senha inválidos.',true);}
+}
 async function load(){
-  const r = await fetch("lojas.json");
-  original = await r.json();
-  const saved = localStorage.getItem("shoppingD_lojas");
-  lojas = saved ? JSON.parse(saved) : structuredClone(original);
-  render();
+ const [a,b]=await Promise.all([
+  fetch(APP_CONFIG.SUPABASE_URL+'/rest/v1/lojas?select=id,andar,luc,nome&order=nome.asc',{headers:publicHeaders()}),
+  fetch(APP_CONFIG.SUPABASE_URL+'/rest/v1/configuracoes?select=valor&chave=eq.vagas_estacionamento',{headers:publicHeaders()})
+ ]);
+ lojas=await a.json();
+ const cfg=await b.json();
+ document.getElementById('vagas').value=(cfg[0]&&cfg[0].valor)||'551';
+ render();
 }
-
 function render(){
-  const term = (document.getElementById("search").value || "").toLowerCase().trim();
-  const tbody = document.getElementById("tbody");
-  tbody.innerHTML = "";
-  const filtered = lojas
-    .map((x,i)=>({...x,_i:i}))
-    .filter(x => !term || x.nome.toLowerCase().includes(term) || x.luc.toLowerCase().includes(term) || x.andar.toLowerCase().includes(term));
-
-  document.getElementById("total").textContent = `${lojas.length} lojas cadastradas`;
-
-  filtered.forEach(x=>{
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${x.andar}</td>
-      <td>${x.luc}</td>
-      <td>${x.nome}</td>
-      <td>
-        <button class="danger" onclick="delStore(${x._i})">Excluir</button>
-      </td>`;
-    tbody.appendChild(tr);
-  });
+ const term=(document.getElementById('search').value||'').toLowerCase().trim();
+ const f=lojas.filter(x=>!term||x.nome.toLowerCase().includes(term)||x.luc.toLowerCase().includes(term)||x.andar.toLowerCase().includes(term));
+ document.getElementById('total').textContent=lojas.length+' lojas cadastradas';
+ const tb=document.getElementById('tbody');tb.innerHTML='';
+ f.forEach(x=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${x.andar}</td><td>${x.luc}</td><td>${x.nome}</td><td><button class="danger" onclick="delStore(${x.id})">Excluir</button></td>`;
+  tb.appendChild(tr);
+ });
 }
-
-function delStore(i){
-  if(confirm("Excluir esta loja?")){
-    lojas.splice(i,1);
-    save();
-  }
+async function addStore(){
+ const andar=document.getElementById('andar').value.trim();
+ const luc=document.getElementById('luc').value.trim();
+ const nome=document.getElementById('nome').value.trim();
+ if(!andar||!luc||!nome){setMsg('Preencha Andar, LUC e Nome.',true);return;}
+ try{
+  await rpc('admin_adicionar_loja',{p_email:adminEmail,p_senha:adminSenha,p_andar:andar,p_luc:luc,p_nome:nome});
+  setMsg('Loja adicionada e publicada.');
+  document.getElementById('andar').value='';document.getElementById('luc').value='';document.getElementById('nome').value='';
+  await load();
+ }catch(e){setMsg('Não foi possível adicionar a loja.',true);}
 }
-
-document.getElementById("add").onclick = () => {
-  const andar = document.getElementById("andar").value.trim();
-  const luc = document.getElementById("luc").value.trim();
-  const nome = document.getElementById("nome").value.trim();
-  if(!andar || !luc || !nome){
-    alert("Preencha Andar, LUC e Nome da loja.");
-    return;
-  }
-  lojas.push({andar,luc,nome});
-  save();
-  document.getElementById("andar").value="";
-  document.getElementById("luc").value="";
-  document.getElementById("nome").value="";
-};
-
-document.getElementById("search").addEventListener("input", render);
-
-document.getElementById("export").onclick = () => {
-  const blob = new Blob([JSON.stringify(lojas,null,2)], {type:"application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "lojas-shopping-d.json";
-  a.click();
-  URL.revokeObjectURL(a.href);
-};
-
-document.getElementById("importBtn").onclick = () => document.getElementById("file").click();
-
-document.getElementById("file").onchange = async (e) => {
-  const file = e.target.files[0];
-  if(!file) return;
-  try{
-    const data = JSON.parse(await file.text());
-    if(!Array.isArray(data)) throw new Error();
-    lojas = data;
-    save();
-    alert("Dados importados com sucesso.");
-  }catch{
-    alert("Arquivo inválido.");
-  }
-};
-
-document.getElementById("reset").onclick = () => {
-  if(confirm("Restaurar a lista original e apagar as alterações deste navegador?")){
-    lojas = structuredClone(original);
-    save();
-  }
-};
-
-load();
+async function delStore(id){
+ if(!confirm('Excluir esta loja?'))return;
+ try{
+  await rpc('admin_excluir_loja',{p_email:adminEmail,p_senha:adminSenha,p_id:id});
+  setMsg('Loja excluída.');
+  await load();
+ }catch(e){setMsg('Não foi possível excluir.',true);}
+}
+async function saveParking(){
+ const vagas=parseInt(document.getElementById('vagas').value,10);
+ if(Number.isNaN(vagas)||vagas<0){setMsg('Informe uma quantidade válida.',true);return;}
+ try{
+  await rpc('admin_alterar_vagas',{p_email:adminEmail,p_senha:adminSenha,p_vagas:vagas});
+  setMsg('Quantidade de vagas atualizada.');
+ }catch(e){setMsg('Não foi possível atualizar as vagas.',true);}
+}
+document.getElementById('login').onclick=login;
+document.getElementById('add').onclick=addStore;
+document.getElementById('saveParking').onclick=saveParking;
+document.getElementById('search').oninput=render;
+document.getElementById('logout').onclick=()=>{sessionStorage.clear();location.reload();};
+adminEmail=sessionStorage.getItem('shoppingd_admin_email')||'';
+adminSenha=sessionStorage.getItem('shoppingd_admin_senha')||'';
+if(adminEmail&&adminSenha){
+ document.getElementById('email').value=adminEmail;
+ document.getElementById('password').value=adminSenha;
+ login();
+}
 </script>
 </body>
 </html>
