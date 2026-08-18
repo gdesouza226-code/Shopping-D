@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gerenciar Lojas | Shopping D</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#edf3f4;color:#15333d}
+    .wrap{max-width:1000px;margin:30px auto;padding:0 16px}
+    .panel{background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 35px rgba(0,0,0,.10);margin-bottom:18px}
+    h1,h2{color:#0f5266;margin-top:0}
+    .grid{display:grid;grid-template-columns:1fr 1fr 2fr auto;gap:10px}
+    input,select,button{font:inherit;padding:12px;border-radius:10px}
+    input,select{border:1px solid #c7d7db;width:100%}
+    button{border:0;background:#0f5266;color:#fff;font-weight:700;cursor:pointer}
+    .danger{background:#b52929}
+    .orange{background:#e95f17}
+    .ghost{background:#6f7f85}
+    .top-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px;border-bottom:1px solid #e2eaec;text-align:left}
+    th{background:#f4f8f9}
+    .small{font-size:13px;color:#677d84}
+    .back{display:inline-block;margin-bottom:15px;text-decoration:none;color:#0f5266;font-weight:700}
+    .notice{background:#fff5dd;border:1px solid #f4d98d;padding:12px;border-radius:10px;margin-bottom:14px}
+    @media(max-width:760px){
+      .grid{grid-template-columns:1fr}
+      table,thead,tbody,tr,th,td{display:block}
+      thead{display:none}
+      tr{border:1px solid #e2eaec;border-radius:10px;margin-bottom:10px;padding:8px}
+      td{border:0;padding:5px 6px}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Voltar ao buscador</a>
+
+  <div class="panel">
+    <h1>Gerenciar lojas</h1>
+    <div class="notice">
+      As alterações ficam salvas neste navegador. Para usar em outro computador, use <b>Exportar dados</b> e depois <b>Importar dados</b>.
+    </div>
+    <div class="grid">
+      <input id="andar" placeholder="Andar, ex.: PISO 1">
+      <input id="luc" placeholder="LUC / Unidade, ex.: 1050">
+      <input id="nome" placeholder="Nome da loja">
+      <button id="add">Adicionar</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="top-actions">
+      <button id="export" class="orange">Exportar dados</button>
+      <button id="importBtn" class="ghost">Importar dados</button>
+      <button id="reset" class="danger">Restaurar lista original</button>
+      <input id="file" type="file" accept=".json" hidden>
+    </div>
+    <input id="search" placeholder="Pesquisar loja para editar ou excluir">
+    <p class="small" id="total"></p>
+    <div style="overflow:auto">
+      <table>
+        <thead><tr><th>Andar</th><th>LUC</th><th>Loja</th><th>Ação</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+let lojas = [];
+let original = [];
+
+function save(){
+  localStorage.setItem("shoppingD_lojas", JSON.stringify(lojas));
+  render();
+}
+
+async function load(){
+  const r = await fetch("lojas.json");
+  original = await r.json();
+  const saved = localStorage.getItem("shoppingD_lojas");
+  lojas = saved ? JSON.parse(saved) : structuredClone(original);
+  render();
+}
+
+function render(){
+  const term = (document.getElementById("search").value || "").toLowerCase().trim();
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+  const filtered = lojas
+    .map((x,i)=>({...x,_i:i}))
+    .filter(x => !term || x.nome.toLowerCase().includes(term) || x.luc.toLowerCase().includes(term) || x.andar.toLowerCase().includes(term));
+
+  document.getElementById("total").textContent = `${lojas.length} lojas cadastradas`;
+
+  filtered.forEach(x=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${x.andar}</td>
+      <td>${x.luc}</td>
+      <td>${x.nome}</td>
+      <td>
+        <button class="danger" onclick="delStore(${x._i})">Excluir</button>
+      </td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function delStore(i){
+  if(confirm("Excluir esta loja?")){
+    lojas.splice(i,1);
+    save();
+  }
+}
+
+document.getElementById("add").onclick = () => {
+  const andar = document.getElementById("andar").value.trim();
+  const luc = document.getElementById("luc").value.trim();
+  const nome = document.getElementById("nome").value.trim();
+  if(!andar || !luc || !nome){
+    alert("Preencha Andar, LUC e Nome da loja.");
+    return;
+  }
+  lojas.push({andar,luc,nome});
+  save();
+  document.getElementById("andar").value="";
+  document.getElementById("luc").value="";
+  document.getElementById("nome").value="";
+};
+
+document.getElementById("search").addEventListener("input", render);
+
+document.getElementById("export").onclick = () => {
+  const blob = new Blob([JSON.stringify(lojas,null,2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "lojas-shopping-d.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+
+document.getElementById("importBtn").onclick = () => document.getElementById("file").click();
+
+document.getElementById("file").onchange = async (e) => {
+  const file = e.target.files[0];
+  if(!file) return;
+  try{
+    const data = JSON.parse(await file.text());
+    if(!Array.isArray(data)) throw new Error();
+    lojas = data;
+    save();
+    alert("Dados importados com sucesso.");
+  }catch{
+    alert("Arquivo inválido.");
+  }
+};
+
+document.getElementById("reset").onclick = () => {
+  if(confirm("Restaurar a lista original e apagar as alterações deste navegador?")){
+    lojas = structuredClone(original);
+    save();
+  }
+};
+
+load();
+</script>
+</body>
+</html>
