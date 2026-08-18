@@ -1,0 +1,522 @@
+[
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "60",
+    "nome": "SAPATARIA DO FUTURO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2321",
+    "nome": "VIVO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2060",
+    "nome": "O BOTICÁRIO"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "316 A",
+    "nome": "AMERICANAS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "QP1",
+    "nome": "STAR MAKE"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "400/01",
+    "nome": "PÉ DO SUCO"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "402",
+    "nome": "SIMTEC"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1050",
+    "nome": "MC DONALD'S"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1113",
+    "nome": "MONTEBELLO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2056-A",
+    "nome": "AROMA CAFÉ"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "30",
+    "nome": "PERNAMBUCANAS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1055-A",
+    "nome": "CACAU SHOW"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1050 A",
+    "nome": "MAREMANNA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2118",
+    "nome": "ZEN ZEN"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1031",
+    "nome": "PONTAL"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2117",
+    "nome": "NATURA"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1055",
+    "nome": "PODEROSO TIMÃO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1056",
+    "nome": "CHILLI BEANS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1000",
+    "nome": "CAEDU"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1053-A",
+    "nome": "GRÃO EXPRESSO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "10",
+    "nome": "CINEMARK"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1049",
+    "nome": "DIVINO FOGÃO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1200/08",
+    "nome": "CRUZEIROS BAR"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1315",
+    "nome": "KING SNEAKERS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1225/6",
+    "nome": "LE POSTICHE"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "Q203",
+    "nome": "TIM"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1053",
+    "nome": "FELIZ FARMA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2104/09",
+    "nome": "EMPÓRIO ALEX"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "315",
+    "nome": "KIDSTOCK"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "Q102",
+    "nome": "NIKIDS DOCES"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1060",
+    "nome": "ELI RIBEIRO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1222",
+    "nome": "BANNER BRASIL"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1045",
+    "nome": "ESPETÃO RESTAURANTE LTDA."
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2067",
+    "nome": "EVENSEN PHOTOGRAPHY"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "403",
+    "nome": "FMW"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1223",
+    "nome": "SHOPBLACK"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "Q002",
+    "nome": "LETRINHA"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1057",
+    "nome": "CLARO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1318/19",
+    "nome": "STAR CÂMBIO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1047/48",
+    "nome": "GIRAFFAS"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2116",
+    "nome": "ATLET"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "Q014",
+    "nome": "GÊMEOS ANIME"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2119",
+    "nome": "H-CASES"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1116",
+    "nome": "HERA MODAS"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "Q103",
+    "nome": "IN LOVE STORE"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "Q101",
+    "nome": "DUELO POKEMON"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "58",
+    "nome": "KIKA BIJU"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1301 A",
+    "nome": "LINA GOLD"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1033/35",
+    "nome": "NAMIB"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1013/16",
+    "nome": "JOHNNY ROCKETS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1119",
+    "nome": "LUPO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1117",
+    "nome": "KIARA D'SOLE"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2318",
+    "nome": "CASA DA SAPATILHA"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1053",
+    "nome": "PLANET CHICKEN"
+  },
+  {
+    "andar": "G1",
+    "luc": "QG1-02",
+    "nome": "LOCALIZA"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "415",
+    "nome": "LOTÉRICA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2222",
+    "nome": "MORANA"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1059",
+    "nome": "MADRINHAS E CONVIDADAS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1030",
+    "nome": "T-REX JUMP"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "QT012",
+    "nome": "T-REX ADVENTURE"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "Q035/0408",
+    "nome": "T-REX GAMES"
+  },
+  {
+    "andar": "ÁREA EXTERNA",
+    "luc": "QG5-02",
+    "nome": "T-REX PARK"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "1",
+    "nome": "T-REX POOL"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2049",
+    "nome": "MANIA DE CHURRASCO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2306",
+    "nome": "CÓDIGO GIRLS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "QP1",
+    "nome": "QUIOSQUE DO CELULAR"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "311/12",
+    "nome": "MANU BABY"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1115",
+    "nome": "SLIPPER"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1320/1",
+    "nome": "MARÍLIA MARQUES"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1103/04",
+    "nome": "MANSÃO DAS NOIVAS"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2046",
+    "nome": "SPOLETTO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2052/53",
+    "nome": "MEI MEI"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "Q201",
+    "nome": "YOGGI"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "Q006",
+    "nome": "FINI"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2316/17",
+    "nome": "WORLD TENNIS"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2058 A",
+    "nome": "PAPPU'S"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "315",
+    "nome": "PASTEL DO REGINA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2218/19",
+    "nome": "POUPATEMPO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2045",
+    "nome": "VIVENDA DO CAMARÃO"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1304/14",
+    "nome": "PREÇOLÂNDIA"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "59",
+    "nome": "PRINT GO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2037/38",
+    "nome": "43 GRAUS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1111",
+    "nome": "RENATA STYLE"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2016",
+    "nome": "RENNER"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "309 A",
+    "nome": "REI DO MATE"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2319",
+    "nome": "NOVISSA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "Q-2027",
+    "nome": "ART CHURROS"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1052",
+    "nome": "GRILETTO"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "061/62/63",
+    "nome": "SANTA MADRE PIZZARIA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2000",
+    "nome": "INOVA ACADEMIA"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2220",
+    "nome": "STOP DESPACHANTE"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1300",
+    "nome": "ÓTICA 2001"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1107/1118",
+    "nome": "AMIGA MODAS"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2066",
+    "nome": "SUPER CHIC"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2008/09",
+    "nome": "TEAM ONE"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "1316/17",
+    "nome": "TENNIS ONE"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "Q114",
+    "nome": "TOUTTI"
+  },
+  {
+    "andar": "PISO 1",
+    "luc": "2224",
+    "nome": "VESTI PIJAMAS"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "50 A",
+    "nome": "POLO WEAR"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "314",
+    "nome": "CHIQUINHO SORVETES"
+  },
+  {
+    "andar": "PISO TÉRREO",
+    "luc": "QPT",
+    "nome": "MR. PRETZELS"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2061",
+    "nome": "MINISO"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2312",
+    "nome": "BURGER KING"
+  },
+  {
+    "andar": "PISO 2",
+    "luc": "2054/55",
+    "nome": "POPEYES"
+  }
+]
